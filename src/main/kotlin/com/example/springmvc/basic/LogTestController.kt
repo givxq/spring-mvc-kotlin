@@ -12,7 +12,12 @@ class LogTestController {
     fun logTest(): String {
         val name = "String"
         println("name = $name")
-        log.info(" info log=$name")
+
+        log.trace("trace log=$name")
+        log.debug("debug log=$name")
+        log.info("info log=$name")
+        log.warn("warn log=$name")
+        log.error("error log=$name")
 
         return "ok"
     }
