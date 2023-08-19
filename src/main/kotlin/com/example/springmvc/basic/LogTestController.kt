@@ -1,23 +1,24 @@
 package com.example.springmvc.basic
 
-import com.example.springmvc.logger
+import io.github.oshai.kotlinlogging.KotlinLogging
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
 
+val logger = KotlinLogging.logger {}
+
 @RestController
 class LogTestController {
-    val log = logger()
 
     @RequestMapping("/log-test")
     fun logTest(): String {
         val name = "String"
         println("name = $name")
 
-        log.trace("trace log=$name")
-        log.debug("debug log=$name")
-        log.info("info log=$name")
-        log.warn("warn log=$name")
-        log.error("error log=$name")
+        logger.trace { "trace log=$name" }
+        logger.debug { "debug log=$name" }
+        logger.info { "info log=$name" }
+        logger.warn { "warn log=$name" }
+        logger.error { "error log=$name" }
 
         return "ok"
     }
